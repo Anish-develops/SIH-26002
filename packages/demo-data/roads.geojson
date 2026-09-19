@@ -1,0 +1,486 @@
+{
+  "type": "FeatureCollection",
+  "name": "Representative Synthetic Mountain Highway Corridor",
+  "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "S-01",
+      "properties": {
+        "id": "S-01",
+        "corridor_id": "CORRIDOR-A-PRIMARY",
+        "name": "Mountain Highway Segment S-01 (Guwahati Bypass – Jorabat Junction)",
+        "road_class": "NATIONAL_HIGHWAY",
+        "status": "OPEN",
+        "risk_score": 14,
+        "risk_level": "LOW",
+        "elevation_m": 65,
+        "slope_deg": 4,
+        "surface_condition": "PAVED_GOOD",
+        "length_km": 16.5,
+        "verified_at": "2026-09-13T21:00:00Z",
+        "source": "synthetic",
+        "environment": "demo",
+        "prototype_estimate": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [91.7362, 26.1445],
+          [91.7924, 26.1158],
+          [91.8341, 26.0942],
+          [91.8741, 26.0712]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "S-02",
+      "properties": {
+        "id": "S-02",
+        "corridor_id": "CORRIDOR-A-PRIMARY",
+        "name": "Mountain Highway Segment S-02 (Jorabat – Umling Ascent)",
+        "road_class": "NATIONAL_HIGHWAY",
+        "status": "OPEN",
+        "risk_score": 18,
+        "risk_level": "LOW",
+        "elevation_m": 280,
+        "slope_deg": 14,
+        "surface_condition": "PAVED_GOOD",
+        "length_km": 19.8,
+        "verified_at": "2026-09-13T21:00:00Z",
+        "source": "synthetic",
+        "environment": "demo",
+        "prototype_estimate": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [91.8741, 26.0712],
+          [91.8795, 26.0245],
+          [91.8834, 25.9721],
+          [91.8817, 25.9015]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "S-03",
+      "properties": {
+        "id": "S-03",
+        "corridor_id": "CORRIDOR-A-PRIMARY",
+        "name": "Mountain Highway Segment S-03 (Umling – Nongpoh Plateau)",
+        "road_class": "NATIONAL_HIGHWAY",
+        "status": "OPEN",
+        "risk_score": 20,
+        "risk_level": "LOW",
+        "elevation_m": 510,
+        "slope_deg": 11,
+        "surface_condition": "PAVED_GOOD",
+        "length_km": 18.2,
+        "verified_at": "2026-09-13T21:00:00Z",
+        "source": "synthetic",
+        "environment": "demo",
+        "prototype_estimate": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [91.8817, 25.9015],
+          [91.8872, 25.8542],
+          [91.8911, 25.8010],
+          [91.8953, 25.7533]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "S-04",
+      "properties": {
+        "id": "S-04",
+        "corridor_id": "CORRIDOR-A-PRIMARY",
+        "name": "Mountain Highway Segment S-04 (Nongpoh – Umsning Valley)",
+        "road_class": "NATIONAL_HIGHWAY",
+        "status": "OPEN",
+        "risk_score": 21,
+        "risk_level": "LOW",
+        "elevation_m": 680,
+        "slope_deg": 15,
+        "surface_condition": "PAVED_GOOD",
+        "length_km": 17.6,
+        "verified_at": "2026-09-13T21:00:00Z",
+        "source": "synthetic",
+        "environment": "demo",
+        "prototype_estimate": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [91.8953, 25.7533],
+          [91.9056, 25.7011],
+          [91.9184, 25.6624],
+          [91.9421, 25.6210]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "S-05",
+      "properties": {
+        "id": "S-05",
+        "corridor_id": "CORRIDOR-A-PRIMARY",
+        "name": "Mountain Highway Segment S-05 (Umsning – Umiam & Shillong Bypass Link)",
+        "road_class": "NATIONAL_HIGHWAY",
+        "status": "OPEN",
+        "risk_score": 24,
+        "risk_level": "LOW",
+        "elevation_m": 1020,
+        "slope_deg": 18,
+        "surface_condition": "PAVED_GOOD",
+        "length_km": 19.4,
+        "verified_at": "2026-09-13T21:00:00Z",
+        "source": "synthetic",
+        "environment": "demo",
+        "prototype_estimate": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [91.9421, 25.6210],
+          [91.9812, 25.5942],
+          [92.0154, 25.5781],
+          [92.0543, 25.5539]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "S-06",
+      "properties": {
+        "id": "S-06",
+        "corridor_id": "CORRIDOR-A-PRIMARY",
+        "name": "Mountain Highway Segment S-06 (Shillong Eastern Bypass – Mawryngkneng)",
+        "road_class": "NATIONAL_HIGHWAY",
+        "status": "OPEN",
+        "risk_score": 25,
+        "risk_level": "LOW",
+        "elevation_m": 1450,
+        "slope_deg": 22,
+        "surface_condition": "PAVED_GOOD",
+        "length_km": 21.0,
+        "verified_at": "2026-09-13T21:00:00Z",
+        "source": "synthetic",
+        "environment": "demo",
+        "prototype_estimate": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [92.0543, 25.5539],
+          [92.1021, 25.5184],
+          [92.1534, 25.4820],
+          [92.2038, 25.4485]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "S-07",
+      "properties": {
+        "id": "S-07",
+        "corridor_id": "CORRIDOR-A-PRIMARY",
+        "name": "Mountain Highway Segment S-07 (Mawryngkneng – Jowai Ridge)",
+        "road_class": "NATIONAL_HIGHWAY",
+        "status": "OPEN",
+        "risk_score": 26,
+        "risk_level": "LOW",
+        "elevation_m": 1380,
+        "slope_deg": 19,
+        "surface_condition": "PAVED_GOOD",
+        "length_km": 20.5,
+        "verified_at": "2026-09-13T21:00:00Z",
+        "source": "synthetic",
+        "environment": "demo",
+        "prototype_estimate": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [92.2038, 25.4485],
+          [92.2612, 25.4120],
+          [92.3145, 25.3811],
+          [92.3619, 25.3522]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "S-08",
+      "properties": {
+        "id": "S-08",
+        "corridor_id": "CORRIDOR-A-PRIMARY",
+        "name": "Mountain Highway Segment S-08 (Jowai/Khliehriat – Pass & Tunnel Section)",
+        "road_class": "NATIONAL_HIGHWAY",
+        "status": "OPEN",
+        "risk_score": 22,
+        "risk_level": "LOW",
+        "elevation_m": 1220,
+        "slope_deg": 32,
+        "surface_condition": "PAVED_GOOD",
+        "length_km": 22.4,
+        "verified_at": "2026-09-13T21:00:00Z",
+        "source": "synthetic",
+        "environment": "demo",
+        "prototype_estimate": true,
+        "critical_choke_point": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [92.3619, 25.3522],
+          [92.3920, 25.3120],
+          [92.4285, 25.2631],
+          [92.4542, 25.2104],
+          [92.4921, 25.1482]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "S-09",
+      "properties": {
+        "id": "S-09",
+        "corridor_id": "CORRIDOR-A-PRIMARY",
+        "name": "Mountain Highway Segment S-09 (Pass Section – Malidor Descent)",
+        "road_class": "NATIONAL_HIGHWAY",
+        "status": "OPEN",
+        "risk_score": 24,
+        "risk_level": "LOW",
+        "elevation_m": 480,
+        "slope_deg": 28,
+        "surface_condition": "PAVED_GOOD",
+        "length_km": 18.0,
+        "verified_at": "2026-09-13T21:00:00Z",
+        "source": "synthetic",
+        "environment": "demo",
+        "prototype_estimate": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [92.4921, 25.1482],
+          [92.5180, 25.0984],
+          [92.5442, 25.0512],
+          [92.5694, 25.0118]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "S-10",
+      "properties": {
+        "id": "S-10",
+        "corridor_id": "CORRIDOR-A-PRIMARY",
+        "name": "Mountain Highway Segment S-10 (Malidor – Kalain Foothills)",
+        "road_class": "NATIONAL_HIGHWAY",
+        "status": "OPEN",
+        "risk_score": 16,
+        "risk_level": "LOW",
+        "elevation_m": 90,
+        "slope_deg": 8,
+        "surface_condition": "PAVED_GOOD",
+        "length_km": 14.2,
+        "verified_at": "2026-09-13T21:00:00Z",
+        "source": "synthetic",
+        "environment": "demo",
+        "prototype_estimate": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [92.5694, 25.0118],
+          [92.6214, 24.9650],
+          [92.6841, 24.9120],
+          [92.7310, 24.8710]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "S-11",
+      "properties": {
+        "id": "S-11",
+        "corridor_id": "CORRIDOR-A-PRIMARY",
+        "name": "Mountain Highway Segment S-11 (Kalain – Silchar Civil Hospital Terminal)",
+        "road_class": "NATIONAL_HIGHWAY",
+        "status": "OPEN",
+        "risk_score": 12,
+        "risk_level": "LOW",
+        "elevation_m": 45,
+        "slope_deg": 3,
+        "surface_condition": "PAVED_GOOD",
+        "length_km": 11.2,
+        "verified_at": "2026-09-13T21:00:00Z",
+        "source": "synthetic",
+        "environment": "demo",
+        "prototype_estimate": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [92.7310, 24.8710],
+          [92.7612, 24.8510],
+          [92.7959, 24.8333]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALT-01",
+      "properties": {
+        "id": "ALT-01",
+        "corridor_id": "CORRIDOR-B-ALTERNATE",
+        "name": "Alternate Bypass Link ALT-01 (Guwahati – Nagaon Link)",
+        "road_class": "NATIONAL_HIGHWAY",
+        "status": "OPEN",
+        "risk_score": 15,
+        "risk_level": "LOW",
+        "elevation_m": 70,
+        "slope_deg": 4,
+        "surface_condition": "PAVED_GOOD",
+        "length_km": 68.0,
+        "verified_at": "2026-09-13T21:00:00Z",
+        "source": "synthetic",
+        "environment": "demo",
+        "prototype_estimate": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [91.7362, 26.1445],
+          [92.0541, 26.1820],
+          [92.3812, 26.2610],
+          [92.6840, 26.3475]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALT-02",
+      "properties": {
+        "id": "ALT-02",
+        "corridor_id": "CORRIDOR-B-ALTERNATE",
+        "name": "Alternate Bypass Link ALT-02 (Nagaon – Dabaka – Lumding)",
+        "road_class": "NATIONAL_HIGHWAY",
+        "status": "OPEN",
+        "risk_score": 19,
+        "risk_level": "LOW",
+        "elevation_m": 125,
+        "slope_deg": 6,
+        "surface_condition": "PAVED_GOOD",
+        "length_km": 48.0,
+        "verified_at": "2026-09-13T21:00:00Z",
+        "source": "synthetic",
+        "environment": "demo",
+        "prototype_estimate": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [92.6840, 26.3475],
+          [92.8512, 26.1120],
+          [93.0124, 25.9240],
+          [93.1703, 25.7523]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALT-03",
+      "properties": {
+        "id": "ALT-03",
+        "corridor_id": "CORRIDOR-B-ALTERNATE",
+        "name": "Alternate Bypass Link ALT-03 (Lumding – Haflong Hill Section)",
+        "road_class": "NATIONAL_HIGHWAY",
+        "status": "OPEN",
+        "risk_score": 28,
+        "risk_level": "LOW",
+        "elevation_m": 510,
+        "slope_deg": 16,
+        "surface_condition": "PAVED_GOOD",
+        "length_km": 42.0,
+        "verified_at": "2026-09-13T21:00:00Z",
+        "source": "synthetic",
+        "environment": "demo",
+        "prototype_estimate": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [93.1703, 25.7523],
+          [93.1245, 25.5340],
+          [93.0654, 25.3210],
+          [93.0185, 25.1706]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALT-04",
+      "properties": {
+        "id": "ALT-04",
+        "corridor_id": "CORRIDOR-B-ALTERNATE",
+        "name": "Alternate Bypass Link ALT-04 (Haflong – Harangajao Descent)",
+        "road_class": "NATIONAL_HIGHWAY",
+        "status": "OPEN",
+        "risk_score": 25,
+        "risk_level": "LOW",
+        "elevation_m": 220,
+        "slope_deg": 14,
+        "surface_condition": "PAVED_GOOD",
+        "length_km": 28.0,
+        "verified_at": "2026-09-13T21:00:00Z",
+        "source": "synthetic",
+        "environment": "demo",
+        "prototype_estimate": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [93.0185, 25.1706],
+          [92.9450, 25.0740],
+          [92.8611, 24.9810]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "ALT-05",
+      "properties": {
+        "id": "ALT-05",
+        "corridor_id": "CORRIDOR-B-ALTERNATE",
+        "name": "Alternate Bypass Link ALT-05 (Harangajao – Silchar Terminal Link)",
+        "road_class": "NATIONAL_HIGHWAY",
+        "status": "OPEN",
+        "risk_score": 15,
+        "risk_level": "LOW",
+        "elevation_m": 50,
+        "slope_deg": 5,
+        "surface_condition": "PAVED_GOOD",
+        "length_km": 20.0,
+        "verified_at": "2026-09-13T21:00:00Z",
+        "source": "synthetic",
+        "environment": "demo",
+        "prototype_estimate": true
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [92.8611, 24.9810],
+          [92.8210, 24.9010],
+          [92.7959, 24.8333]
+        ]
+      }
+    }
+  ]
+}

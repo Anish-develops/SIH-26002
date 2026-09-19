@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: ner-sentinel-api
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm install && npm run build:api
+    startCommand: npm run start:api
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ENVIRONMENT
+        value: demo
+      - key: DATA_SOURCE
+        value: synthetic
+      - key: PORT
+        value: 10000

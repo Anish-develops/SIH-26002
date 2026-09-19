@@ -1,0 +1,401 @@
+NER Sentinel - Prototype MVP Specification
+
+Build-ready scope | What the team should ship for the prototype
+
+SIH Problem Statement 26002 | MDoNER | Software | Transportation & Logistics
+
+Prototype north star: predict disruption, keep essential deliveries moving, and make every decision explainable.
+
+1. MVP objective
+
+Ship a visually polished, integrated prototype that proves the product loop: observe -> assess risk -> recommend -> alert -> reroute -> report -> synchronize.
+
+The single demo scenario
+
+Use one synthetic corridor, a small set of road segments, 2-3 simulated vehicles, 3-5 deliveries, and several synthetic incidents. The exact places and numbers are configurable; do not present the seeded values as real-world measurements.
+
+Scenario seed   ->   Road risk changes   ->   Incident confirmed   ->   Route recalculated   ->   Driver alerted   ->   Delivery impact shown
+
+2. Ship list
+
+Module
+
+Ship
+
+Priority
+
+Web shell
+
+Responsive command center, nav, DEMO badge, user role, notifications
+
+P0
+
+GIS
+
+Road segments, status colors, vehicle markers, incident pins, route overlay, detail drawer
+
+P0
+
+Risk engine
+
+Rule-based flood/landslide/disruption score + factor explanation + version
+
+P0
+
+Route engine
+
+Primary + alternate route, ETA, risk-aware ranking
+
+P0
+
+Driver app
+
+Trip map, alerts, reroute, incident report, sync queue
+
+P0
+
+Vehicle simulator
+
+Deterministic GPS stream for demo vehicles
+
+P0
+
+Logistics
+
+Delivery list, ETA, priority, status, affected-by-risk relationship
+
+P0
+
+Field reporting
+
+GPS + incident type + severity + photo + notes
+
+P0
+
+Offline sync
+
+Local queue, retry, idempotent upload
+
+P0
+
+Scenario console
+
+Trigger weather/risk/closure event, pause/resume, reset
+
+P0
+
+Multilingual
+
+Message keys + English + one local-language demo pack
+
+P1
+
+Authentication
+
+Prototype role selection / lightweight login; no public self-signup
+
+P1
+
+3. UI specification
+
+Website pages
+
+Page
+
+Required content
+
+Interaction
+
+Overview
+
+KPIs, map, critical alerts, deliveries, risk summary
+
+Filter by state/district/status; open detail drawer
+
+Live map
+
+Full map, layer control, legend, search, event timeline
+
+Click road / vehicle / incident
+
+Logistics
+
+Delivery table + route/risk status
+
+Open delivery -> vehicle + route + ETA
+
+Incidents
+
+Incident list with severity/source/time
+
+Open incident -> map/photo/audit
+
+Corridor detail
+
+Risk trend, evidence, vehicles, deliveries, recommended action
+
+Acknowledge / reroute / mark verified
+
+Scenario console
+
+Synthetic controls
+
+Trigger event / reset demo
+
+Mobile pages
+
+Page
+
+Required content
+
+Home
+
+Trip status, destination, ETA, current alert, connectivity state
+
+Active trip
+
+Map, route, next action, risk/hazard card, reroute button
+
+Alert
+
+Severity, what changed, location, ETA impact, recommended action, acknowledge
+
+Report incident
+
+Incident type, severity, photo, auto-GPS, notes, save offline/send
+
+Sync queue
+
+Pending/synced items, retry, last sync
+
+Settings
+
+Language, notifications, app info, demo environment
+
+Visual system
+
+Use a 12-column desktop grid and 4-column mobile grid. Keep map as the primary visual anchor.
+
+Use one accent color for brand/interactive elements; reserve green/amber/red only for operational status.
+
+Cards: 12-16 px radius, subtle borders, minimal shadows. Avoid glassmorphism or heavy gradients.
+
+Typography: bold numeric KPIs, compact labels, sentence-case controls. Never make the screen feel like a spreadsheet.
+
+DEMO / SYNTHETIC DATA badges must be visible but visually secondary.
+
+All critical status has icon + text + color; never use color alone.
+
+4. API contract
+
+Endpoint
+
+Purpose
+
+Key request/response
+
+GET /map/segments
+
+Road accessibility layer
+
+Filters -> segment_id, geometry, status, risk
+
+GET /incidents
+
+Incident feed
+
+Filter -> incident + verification status
+
+GET /vehicles
+
+Vehicle feed
+
+Positions + trip state
+
+GET /deliveries
+
+Logistics feed
+
+Priority + ETA + risk exposure
+
+GET /risk/{segment_id}
+
+Risk detail
+
+Scores + factors + model/rule version
+
+POST /reports
+
+Create incident report
+
+GPS + media ref + category + severity
+
+POST /sync
+
+Upload offline queue
+
+Idempotency key + batched events
+
+POST /route
+
+Risk-aware routing
+
+Origin + destination + constraints -> alternatives
+
+POST /scenario/events
+
+Trigger demo event
+
+Event type + target IDs + synthetic parameters
+
+POST /scenario/reset
+
+Restore demo state
+
+No payload
+
+5. Minimal data model
+
+Entity
+
+Required fields
+
+RoadSegment
+
+id, geometry, class, status, verified_at, source
+
+Incident
+
+id, type, severity, lat, lng, photo_ref, created_at, reporter, verification_status
+
+Vehicle
+
+id, trip_id, lat, lng, speed, heading, telemetry_at
+
+Delivery
+
+id, commodity, priority, origin, destination, planned_eta, current_eta, status
+
+RiskScore
+
+segment_id, type, score, horizon, factors, version, created_at
+
+Alert
+
+id, severity, message_key, target_id, created_at, acknowledged_at
+
+Route
+
+id, origin, destination, geometry, eta, risk_score, selected, generated_at
+
+6. Synthetic data pack
+
+Create the prototype around a reusable seed package rather than embedding values directly in UI code.
+
+File / collection
+
+Purpose
+
+roads.geojson
+
+Road geometry and static attributes for the demo region/corridor.
+
+incidents.json
+
+Synthetic incidents used for initial map state and scenario events.
+
+vehicles.json
+
+Starting positions, trip IDs and deterministic movement paths.
+
+deliveries.json
+
+Synthetic essential-goods deliveries with priorities and destinations.
+
+weather.json
+
+Synthetic/replayed weather observations matching the future weather adapter schema.
+
+risk_baseline.json
+
+Initial risk values and factor explanations for demo reproducibility.
+
+scenarios.json
+
+Named scenarios: normal, heavy rain, landslide, blocked road, recovery.
+
+Seed ruleEvery file must include environment="demo" and source="synthetic" (or an explicit replay source). No real-time claim should be inferred from seeded data.
+
+7. Build order
+
+Phase
+
+Outcome
+
+Exit condition
+
+1. Foundation
+
+Web shell + backend + PostGIS + map loads
+
+Roads render and filters work
+
+2. Core intelligence
+
+Risk service + route service + synthetic scenario engine
+
+Trigger changes map/risk and returns alternate route
+
+3. Driver app
+
+Trip screen + alerts + incident capture + local queue
+
+Driver can receive alert and submit report
+
+4. Integration
+
+Vehicles + deliveries + events + WebSocket/SSE
+
+One event propagates across all views
+
+5. Polish
+
+Responsive UI, transitions, empty/loading/error states, accessibility pass
+
+Demo can be run cleanly on laptop + phone
+
+6. Hardening
+
+Reset, seed, logs, source labels, failure fallbacks
+
+Team can reproduce the exact demo from a clean start
+
+8. Prototype QA checklist
+
+Web dashboard works at common laptop widths; mobile app works on a modern Android-sized viewport.
+
+No layout shift when map, cards, or alert states change.
+
+Every loading/error/empty state has deliberate UI.
+
+Offline report remains visible after app restart until synced.
+
+Driver receives a route change without losing current trip context.
+
+Scenario reset returns map, vehicles, deliveries and alerts to the seeded baseline.
+
+All risk outputs show source, timestamp, horizon, and prototype/model version.
+
+No screen contains unexplained “AI” scores or fake government data claims.
+
+9. Handover notes for the team
+
+Keep domain logic independent from UI so real government adapters can be plugged in later.
+
+Keep all external providers behind adapters: weather_provider, road_provider, disaster_provider, routing_provider.
+
+Keep risk weights configurable and versioned.
+
+Use stable IDs and idempotent event ingestion from day one.
+
+Build the demo reset and scenario console early; it saves enormous time during judging rehearsals.

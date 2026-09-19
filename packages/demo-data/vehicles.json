@@ -1,0 +1,44 @@
+[
+  {
+    "id": "V-101",
+    "trip_id": "TRIP-MED-901",
+    "vehicle_number": "AS-01-EC-4210",
+    "driver_name": "B. Barman",
+    "driver_phone": "+91-94351-44210",
+    "latitude": 25.4485,
+    "longitude": 92.2038,
+    "speed_kmh": 42,
+    "heading_deg": 140,
+    "telemetry_at": "2026-09-13T22:00:00Z",
+    "status": "ON_ROUTE",
+    "current_corridor": "CORRIDOR-A-PRIMARY"
+  },
+  {
+    "id": "V-102",
+    "trip_id": "TRIP-FOOD-402",
+    "vehicle_number": "AS-01-GC-8842",
+    "driver_name": "P. Gogoi",
+    "driver_phone": "+91-98642-88420",
+    "latitude": 25.7533,
+    "longitude": 91.8953,
+    "speed_kmh": 48,
+    "heading_deg": 125,
+    "telemetry_at": "2026-09-13T22:00:00Z",
+    "status": "ON_ROUTE",
+    "current_corridor": "CORRIDOR-A-PRIMARY"
+  },
+  {
+    "id": "V-103",
+    "trip_id": "TRIP-RELIEF-103",
+    "vehicle_number": "AS-11-BC-1920",
+    "driver_name": "T. Sangma",
+    "driver_phone": "+91-97740-19200",
+    "latitude": 26.1445,
+    "longitude": 91.7362,
+    "speed_kmh": 0,
+    "heading_deg": 0,
+    "telemetry_at": "2026-09-13T22:00:00Z",
+    "status": "IDLE",
+    "current_corridor": "CORRIDOR-B-ALTERNATE"
+  }
+]

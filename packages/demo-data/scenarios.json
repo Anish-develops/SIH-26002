@@ -1,0 +1,81 @@
+{
+  "environment": "demo",
+  "source": "synthetic",
+  "scenarios": [
+    {
+      "id": "NORMAL",
+      "title": "Scenario 1 — Normal Baseline",
+      "description": "Clear operating conditions across all mountain corridors. Essential medicine delivery V-101 is on schedule via Primary Lifeline Corridor A.",
+      "metrics": {
+        "primary_corridor": "CORRIDOR-A-PRIMARY",
+        "distance_km": 198,
+        "eta_formatted": "5h 12m",
+        "eta_minutes": 312,
+        "segment_s08_status": "OPEN",
+        "segment_s08_risk_score": 22,
+        "segment_s08_risk_level": "LOW",
+        "delivery_status": "ON_TIME",
+        "expected_delay_text": "None (0m)"
+      }
+    },
+    {
+      "id": "HEAVY_RAIN",
+      "title": "Scenario 2 — Heavy Rainfall Surge",
+      "description": "Localized monsoon storm (65 mm/h) over S-08 Pass & Tunnel Section. Risk engine escalates risk score from 22 to 78 (HIGH). Caution alert dispatched.",
+      "metrics": {
+        "rainfall_mm_h": 65,
+        "segment_s08_status": "RESTRICTED",
+        "segment_s08_risk_score": 78,
+        "segment_s08_risk_level": "HIGH",
+        "expected_delay_text": "+2h 14m",
+        "factors": [
+          { "factor": "Heavy rainfall", "points": 30, "category": "WEATHER" },
+          { "factor": "Steep terrain", "points": 22, "category": "TERRAIN" },
+          { "factor": "Recent incident", "points": 18, "category": "INCIDENT_HISTORY" },
+          { "factor": "Historical exposure", "points": 8, "category": "SOIL_MOISTURE" }
+        ],
+        "alert": {
+          "severity": "HIGH",
+          "title": "Landslide Risk Increased",
+          "message": "Corridor A / Segment S-08 has reached HIGH RISK due to heavy rainfall (65 mm/h). Expected delay: +2h 14m. Recommended action: Monitor corridor and standby for reroute.",
+          "message_key": "alert_landslide_risk_high"
+        }
+      }
+    },
+    {
+      "id": "LANDSLIDE",
+      "title": "Scenario 3 — Landslide & Road Closure",
+      "description": "Massive slope failure near S-08 Tunnel Approach. Both lanes blocked. Route engine detects blockage, evaluates graph, and recommends Alternate Corridor B.",
+      "metrics": {
+        "segment_s08_status": "BLOCKED",
+        "segment_s08_risk_score": 95,
+        "segment_s08_risk_level": "CRITICAL",
+        "incident_type": "LANDSLIDE",
+        "alternate_corridor": "CORRIDOR-B-ALTERNATE",
+        "previous_eta": "5h 12m",
+        "new_eta": "6h 03m",
+        "new_distance_km": 206,
+        "eta_delta_minutes": 51,
+        "alternate_risk_score": 28,
+        "alternate_risk_level": "LOW",
+        "recommendation_reason": "Avoids high-risk blocked corridor on Segment S-08.",
+        "alert": {
+          "severity": "HIGH",
+          "title": "ROUTE UPDATED — Road Closure Detected Ahead",
+          "message": "Physical blockage confirmed on Segment S-08. Primary route impassable. Recommended Route: Alternative Corridor B (ETA: 6h 03m, Distance: 206 km).",
+          "message_key": "alert_route_updated_closure"
+        }
+      }
+    },
+    {
+      "id": "RECOVERY",
+      "title": "Scenario 4 — Corridor Clearance & Recovery",
+      "description": "PWD clearance crews restore single-lane emergency traffic. S-08 returns to RESTRICTED then OPEN as weather eases.",
+      "metrics": {
+        "segment_s08_status": "RESTRICTED",
+        "segment_s08_risk_score": 42,
+        "segment_s08_risk_level": "MEDIUM"
+      }
+    }
+  ]
+}

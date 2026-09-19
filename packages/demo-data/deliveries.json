@@ -1,0 +1,77 @@
+[
+  {
+    "id": "DEL-MED-01",
+    "commodity": "MEDICINE",
+    "priority": "CRITICAL",
+    "title": "Critical Pediatric Vaccines & Cold-Chain Insulin",
+    "origin": {
+      "name": "Guwahati Regional Medical Depot",
+      "latitude": 26.1445,
+      "longitude": 91.7362
+    },
+    "destination": {
+      "name": "Silchar District Civil Hospital",
+      "latitude": 24.8333,
+      "longitude": 92.7959
+    },
+    "vehicle_id": "V-101",
+    "planned_eta": "5h 12m",
+    "current_eta": "5h 12m",
+    "eta_minutes": 312,
+    "distance_km": 198,
+    "status": "ON_TIME",
+    "risk_exposure": "LOW",
+    "active_corridor": "CORRIDOR-A-PRIMARY",
+    "notes": "Temperature-controlled container (-20°C). 8-hour reserve battery backup active."
+  },
+  {
+    "id": "DEL-FOOD-02",
+    "commodity": "FOOD",
+    "priority": "HIGH",
+    "title": "Emergency Baby Formula & Nutritional Rations",
+    "origin": {
+      "name": "Guwahati Central Supply Depot",
+      "latitude": 26.1445,
+      "longitude": 91.7362
+    },
+    "destination": {
+      "name": "Cachar District Relief Godown",
+      "latitude": 24.8333,
+      "longitude": 92.7959
+    },
+    "vehicle_id": "V-102",
+    "planned_eta": "5h 45m",
+    "current_eta": "5h 45m",
+    "eta_minutes": 345,
+    "distance_km": 198,
+    "status": "ON_TIME",
+    "risk_exposure": "LOW",
+    "active_corridor": "CORRIDOR-A-PRIMARY",
+    "notes": "Dry freight tarpaulin-sealed. Buffer stock for remote health centers."
+  },
+  {
+    "id": "DEL-ENG-03",
+    "commodity": "CONSTRUCTION",
+    "priority": "NORMAL",
+    "title": "Prefab Bailey Bridge Joint Structural Assemblies",
+    "origin": {
+      "name": "Guwahati PWD Central Stores",
+      "latitude": 26.1445,
+      "longitude": 91.7362
+    },
+    "destination": {
+      "name": "Silchar Infrastructure Maintenance Depot",
+      "latitude": 24.8333,
+      "longitude": 92.7959
+    },
+    "vehicle_id": "V-103",
+    "planned_eta": "7h 15m",
+    "current_eta": "7h 15m",
+    "eta_minutes": 435,
+    "distance_km": 206,
+    "status": "ON_TIME",
+    "risk_exposure": "LOW",
+    "active_corridor": "CORRIDOR-B-ALTERNATE",
+    "notes": "Heavy vehicle payload. Pre-staged for seasonal highway restoration work."
+  }
+]

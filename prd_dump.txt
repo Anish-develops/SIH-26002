@@ -1,0 +1,545 @@
+NER Sentinel - Product Requirements Document
+
+Prototype PRD | Web Command Center + Driver Mobile App
+
+SIH Problem Statement 26002 | MDoNER | Software | Transportation & Logistics
+
+Prototype north star: predict disruption, keep essential deliveries moving, and make every decision explainable.
+
+1. Product definition
+
+NER Sentinel is a prototype decision-support platform for transport accessibility and essential-goods logistics in the North Eastern Region. It combines a live GIS network view, disruption risk scoring, route recommendations, vehicle telemetry, field incident reports, and operational alerts.
+
+Primary users
+
+User
+
+Need
+
+Primary surface
+
+Driver
+
+Know current route, hazards, reroutes, ETA, and alerts.
+
+Mobile app
+
+District / control-room operator
+
+See network health, incidents, vehicles, deliveries, and recommended actions.
+
+Web dashboard
+
+Field official
+
+Report a road/bridge incident with GPS and photo, even offline.
+
+Mobile app
+
+Demo administrator
+
+Seed synthetic scenarios and reset the prototype.
+
+Web admin panel
+
+Prototype success
+
+One believable end-to-end scenario works without manual database edits during the demo.
+
+The same incident appears on both app and web within seconds when online.
+
+A risk change can trigger a route recommendation and an alert.
+
+All demo data is explicitly marked synthetic / simulated; no fabricated government claim is presented as real.
+
+The interface is polished enough to communicate a production vision while keeping engineering scope prototype-sized.
+
+2. Scope for the prototype
+
+In scope now
+
+Future, not required for demo
+
+Live/simulated GIS map; road status; incidents; vehicle markers; route overlay
+
+Nationwide real-time deployment across all NER states
+
+Risk engine for flood/landslide/road disruption using configurable rules + ML-ready feature contract
+
+Production-grade predictive models trained on verified long-term datasets
+
+Alternate route and ETA calculation
+
+Full multimodal optimization, toll/fuel/carbon optimization
+
+Driver alerts, acknowledgements, route guidance view
+
+Deep telematics/CAN integration
+
+Offline incident capture + sync queue
+
+Full offline navigation and edge inference
+
+Synthetic scenario console
+
+Government SSO, enterprise IAM, audit-grade governance
+
+Multilingual notification framework with 2 languages in demo
+
+Complete language coverage and voice interface
+
+Important boundaryThe prototype is a product demonstration, not an operational emergency service. Risk scores must be labeled “prototype estimate” until validated against official data and field outcomes.
+
+3. Experience design
+
+Design direction
+
+Visual language: modern government-operations command center, not consumer navigation. Dense information is allowed, but hierarchy must be obvious. Use a neutral map canvas, strong typography, restrained status colors, large touch targets, and consistent status chips.
+
+Surface
+
+Key screens
+
+Must feel like
+
+Driver app
+
+Home / active trip / alert detail / incident report / sync queue
+
+Calm, glanceable, safe while driving
+
+Web command center
+
+Overview / map / logistics / incidents / deliveries / corridor detail / scenario console
+
+Operational, analytical, trustworthy
+
+Web - command center layout
+
+Top status bar   ->   KPI ribbon   ->   Map + route layer   ->   Right action panel
+
+Top bar: NER Sentinel, environment badge (“DEMO”), last data refresh, notification center, user role.
+
+KPI ribbon: accessibility %, high-risk corridors, active incidents, vehicles in transit, delayed deliveries.
+
+Main map: route layers, road-state segments, incident pins, vehicle markers, optional rainfall/risk overlay.
+
+Action panel: current critical alerts, affected deliveries, recommended reroutes, acknowledgement controls.
+
+Detail drawer: selecting a road/vehicle/incident opens a focused panel without losing map context.
+
+Mobile - driver app layout
+
+Trip header   ->   Map   ->   Hazard card   ->   Bottom action bar
+
+Home: current trip, next alert, destination ETA, network state, and “start / resume trip”.
+
+Active trip: map dominates; hazard card appears only when relevant; reroute action is one tap.
+
+Alert detail: severity, affected segment, expected delay, recommended action, timestamp, confidence.
+
+Incident report: type, severity, photo, GPS lock, notes, send / save offline.
+
+Sync queue: pending reports, retry state, last successful sync.
+
+4. Functional requirements
+
+ID
+
+Requirement
+
+Prototype acceptance
+
+FR-01
+
+GIS network view
+
+Operator can view roads, status, incidents, vehicles and selected route on one map.
+
+FR-02
+
+Accessibility state
+
+Every demo road segment supports Open / Restricted / Blocked / Unknown.
+
+FR-03
+
+Risk score
+
+Selected segment shows flood, landslide and disruption risk with factors and confidence label.
+
+FR-04
+
+Route engine
+
+Given origin/destination and current closures/risks, system returns primary + alternate route with ETA.
+
+FR-05
+
+Vehicle tracking
+
+A moving demo vehicle updates on the map and trip page.
+
+FR-06
+
+Alerts
+
+High-risk or blocked event creates an alert; driver can acknowledge it.
+
+FR-07
+
+Field report
+
+Mobile user can capture GPS, category, severity, photo and notes.
+
+FR-08
+
+Offline sync
+
+Report can be saved without connectivity and syncs automatically later.
+
+FR-09
+
+Logistics status
+
+Operator sees delivery priority, current location, ETA, delay status and risk exposure.
+
+FR-10
+
+Scenario console
+
+Demo operator can trigger a synthetic rainfall / landslide / closure event and reset state.
+
+FR-11
+
+Audit trail
+
+System stores event time, source, status change, and acknowledgement for prototype traceability.
+
+FR-12
+
+Multilingual alerts
+
+Alert copy is stored by message key; demo supports English + one local language.
+
+5. Intelligence and decision logic
+
+Prototype risk engine
+
+Use a hybrid approach. Start with transparent weighted rules so the demo is deterministic; expose a model interface so XGBoost/LightGBM or another validated model can replace the scoring layer later.
+
+Input family
+
+Example fields (schema only)
+
+Prototype source
+
+Weather
+
+rain_1h, rain_6h, rain_24h, forecast_alert, temperature
+
+Synthetic weather feed matching the future IMD adapter contract
+
+Terrain
+
+elevation_m, slope_deg, road_cut_flag
+
+DEM-derived or seeded terrain attributes
+
+Road
+
+surface, road_class, bridge_flag, historical_incident_count
+
+Road-network dataset + synthetic incident history
+
+Events
+
+incident_type, severity, confidence, created_at
+
+Field-report module / scenario console
+
+Traffic / vehicle
+
+speed, stop_time, segment_traversal_time
+
+Simulated GPS stream
+
+Hydrology
+
+river_distance_m, river_level, flood_zone_flag
+
+Future government/hydrology adapter
+
+Route cost
+
+Recommended prototype formula: Cost = travel_time + risk_penalty + closure_penalty + reliability_penalty. Keep weights configurable in the scenario console rather than hard-coded in the UI.
+
+Explainability ruleEvery recommendation must show “Why this route?” with 2-4 contributing factors. Never display an unexplained probability as if it were a verified forecast.
+
+6. Data collection set
+
+The collection set is the contract between future real data sources, the prototype backend, and the AI layer. Start with these tables/collections; do not invent factual values.
+
+Collection
+
+Minimum fields
+
+Prototype population
+
+road_segments
+
+segment_id, geometry, road_class, status, last_verified_at, source
+
+Synthetic records shaped like the production schema; geometry can come from OSM for the demo region.
+
+incidents
+
+incident_id, type, severity, lat, lng, photo_url, created_at, reporter_id, verification_status
+
+Scenario events + manual test reports.
+
+weather_observations
+
+timestamp, lat, lng, rain_1h, rain_24h, wind, warning_code, source
+
+Synthetic values or replayed historical samples; keep source field.
+
+terrain_features
+
+segment_id, elevation_m, slope_deg, curvature, drainage_proxy
+
+Derived from DEM; store method/version.
+
+vehicles
+
+vehicle_id, lat, lng, speed, heading, trip_id, telemetry_at
+
+Simulated moving GPS stream.
+
+deliveries
+
+delivery_id, commodity_type, priority, origin, destination, planned_eta, current_eta, status
+
+Synthetic demo deliveries.
+
+risk_scores
+
+segment_id, risk_type, score, horizon, factors_json, model_version, generated_at
+
+Generated by prototype rules; future ML model can use same interface.
+
+alerts
+
+alert_id, target_type, target_id, severity, message_key, created_at, acknowledged_at
+
+Generated by alert engine.
+
+Recommended acquisition path
+
+Data
+
+Where to start
+
+Integration note
+
+Road network
+
+OpenStreetMap / Overpass or regional extracts
+
+Normalize to PostGIS; retain OSM attribution and license requirements.
+
+India geospatial / EO / terrain
+
+ISRO NRSC Bhuvan / NOEDA and compatible services
+
+Use approved datasets/services; record dataset version and license.
+
+Disaster / hazard layers
+
+NRSC NDEM / Bhuvan disaster services
+
+Treat as reference or future operational adapter; validate access and usage terms.
+
+Weather
+
+IMD official API/data services
+
+Build a provider adapter; keep API credentials and quotas outside the app.
+
+Elevation
+
+Bhuvan CartoDEM where accessible, or SRTM 30 m class source for prototype
+
+Compute slope/terrain features during preprocessing.
+
+Government transport / incident feeds
+
+Future MoRTH / state / district integrations
+
+Use interface placeholders until access is confirmed.
+
+Prototype data ruleSeed data should be synthetic and clearly labeled. Real datasets can be plugged into the same collections later; the UI should never need to know whether a record is synthetic or live except for a visible environment/source badge.
+
+7. Technical architecture
+
+Mobile + Web   ->   API layer   ->   PostGIS + event store   ->   Risk / route services   ->   Data adapters
+
+Frontend: Next.js/React for web; React Native or Flutter for mobile.
+
+Backend: FastAPI or Spring Boot; REST for core APIs and WebSocket/SSE for live updates.
+
+Database: PostgreSQL + PostGIS; object storage for incident photos.
+
+Routing: OSRM/GraphHopper or an equivalent road-graph service; wrap it behind a route-service interface.
+
+AI: Python service or module with versioned model interface; prototype begins with deterministic scoring.
+
+Offline: device-local SQLite/secure storage + retry queue + idempotent sync endpoint.
+
+Security: role-based access, signed upload URLs, HTTPS, token-based sessions, audit events.
+
+Core integration events
+
+Event
+
+Producer
+
+Consumers
+
+ROAD_STATUS_CHANGED
+
+Risk/incident service
+
+Map, route engine, alert engine
+
+VEHICLE_POSITION_UPDATED
+
+Driver app / simulator
+
+Map, ETA service, delivery view
+
+RISK_SCORE_UPDATED
+
+Risk engine
+
+Map, route engine, alerts
+
+DELIVERY_ETA_CHANGED
+
+ETA service
+
+Web dashboard, driver app, alerts
+
+ALERT_CREATED
+
+Alert engine
+
+Web, driver app, notification channel
+
+INCIDENT_REPORTED
+
+Field app
+
+Incident service, audit log, risk engine
+
+8. Non-functional requirements
+
+Area
+
+Prototype target
+
+Performance
+
+Map view usable on a normal laptop; key dashboard actions respond within ~2 seconds on seeded data.
+
+Realtime
+
+Online vehicle/event updates visible on web and mobile within a few seconds.
+
+Offline
+
+Incident can be stored locally; user sees clear pending-sync state.
+
+Accessibility
+
+Touch targets >=44 px, readable contrast, keyboard-friendly web navigation, semantic labels.
+
+Reliability
+
+Scenario reset can restore known demo state in one action.
+
+Observability
+
+Request ID, event log, data-source badge, model/rule version shown in admin/debug view.
+
+Privacy
+
+No unnecessary personal data; demo driver identity should be synthetic.
+
+9. Demo journey and acceptance
+
+The primary demo should run as one story, not as a feature tour.
+
+Step
+
+What happens
+
+Judge-visible output
+
+1
+
+Driver begins an essential-goods trip.
+
+Mobile map + ETA + trip status.
+
+2
+
+Scenario console increases rainfall / risk on a corridor.
+
+Web map changes; risk card explains factors.
+
+3
+
+Segment becomes restricted/blocked.
+
+Alert generated; route engine recalculates.
+
+4
+
+Driver receives alert and acknowledges it.
+
+Mobile notification + new route/ETA.
+
+5
+
+Field official submits incident with photo/GPS.
+
+Incident appears on map and audit feed.
+
+6
+
+System identifies affected delivery.
+
+Delayed delivery + recommendation visible on web.
+
+7
+
+Operator opens corridor detail.
+
+Risk, evidence, vehicles, deliveries and recommended action in one place.
+
+Definition of doneA clean reset, a 3-5 minute demo scenario, zero hard-coded “live” claims, and visible source/environment labels on every operational view.
+
+10. Future expansion
+
+Validated ML models for landslide/flood/disruption forecasting with calibrated uncertainty.
+
+Official integrations for weather, roads, hydrology, disaster alerts, and state systems.
+
+Fleet telematics and multimodal transport coordination.
+
+Inventory and district-level shortage prediction.
+
+Satellite-derived change detection and computer-vision-assisted incident verification.
+
+Full offline maps, voice alerts, additional regional languages, and role-based government workflows.

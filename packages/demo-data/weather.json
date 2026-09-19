@@ -1,0 +1,68 @@
+{
+  "environment": "demo",
+  "source": "synthetic",
+  "station_observations": [
+    {
+      "station_id": "IMD-GAU-01",
+      "location_name": "Guwahati Airport AWS",
+      "latitude": 26.1445,
+      "longitude": 91.7362,
+      "rainfall_1h_mm": 4.2,
+      "rainfall_24h_mm": 18.5,
+      "wind_speed_kmh": 12,
+      "warning_code": "GREEN",
+      "recorded_at": "2026-09-13T22:00:00Z"
+    },
+    {
+      "station_id": "IMD-NONG-02",
+      "location_name": "Nongpoh Weather Station",
+      "latitude": 25.9015,
+      "longitude": 91.8817,
+      "rainfall_1h_mm": 8.0,
+      "rainfall_24h_mm": 32.0,
+      "wind_speed_kmh": 14,
+      "warning_code": "GREEN",
+      "recorded_at": "2026-09-13T22:00:00Z"
+    },
+    {
+      "station_id": "IMD-JOW-03",
+      "location_name": "Jowai District Observatory",
+      "latitude": 25.4485,
+      "longitude": 92.2038,
+      "rainfall_1h_mm": 14.5,
+      "rainfall_24h_mm": 58.0,
+      "wind_speed_kmh": 18,
+      "warning_code": "YELLOW_WATCH",
+      "recorded_at": "2026-09-13T22:00:00Z"
+    },
+    {
+      "station_id": "IMD-KHL-04",
+      "location_name": "Khliehriat Hill Station (S-08 Baseline)",
+      "latitude": 25.3522,
+      "longitude": 92.3619,
+      "rainfall_1h_mm": 12.0,
+      "rainfall_24h_mm": 48.0,
+      "wind_speed_kmh": 22,
+      "warning_code": "YELLOW_WATCH",
+      "recorded_at": "2026-09-13T22:00:00Z"
+    },
+    {
+      "station_id": "IMD-SIL-05",
+      "location_name": "Silchar Kumbhirgram AWS",
+      "latitude": 24.8333,
+      "longitude": 92.7959,
+      "rainfall_1h_mm": 6.1,
+      "rainfall_24h_mm": 24.0,
+      "wind_speed_kmh": 10,
+      "warning_code": "GREEN",
+      "recorded_at": "2026-09-13T22:00:00Z"
+    }
+  ],
+  "heavy_rain_surge_profile": {
+    "target_station_id": "IMD-KHL-04",
+    "rainfall_1h_mm": 65.0,
+    "rainfall_24h_mm": 185.0,
+    "warning_code": "RED_ALERT",
+    "description": "High-intensity localized cloudburst and sustained orographic monsoon precipitation over steep ridge."
+  }
+}

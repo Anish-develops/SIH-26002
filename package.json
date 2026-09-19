@@ -1,0 +1,35 @@
+{
+  "name": "ner-sentinel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-Based Smart Logistics and Accessibility Intelligence Platform for the North Eastern Region",
+  "workspaces": [
+    "packages/*",
+    "services/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev --workspace=services/api",
+    "dev:web": "npm run dev --workspace=apps/web",
+    "dev:mobile": "npm run dev --workspace=apps/mobile",
+    "dev": "npm run dev --workspace=services/api",
+    "seed-demo": "npm run seed --workspace=services/api",
+    "reset-demo": "npm run reset --workspace=services/api",
+    "build": "npm run build --workspaces --if-present",
+    "type-check": "npm run type-check --workspaces --if-present",
+    "build:api": "npm run build --workspace=packages/types && npm run build --workspace=services/api",
+    "start:api": "npm run start --workspace=services/api",
+    "build:web": "npm run build --workspace=packages/types && npm run build --workspace=apps/web",
+    "build:mobile": "npm run build --workspace=packages/types && npm run build --workspace=apps/mobile"
+  },
+  "keywords": [
+    "sih",
+    "logistics",
+    "gis",
+    "north-east-india",
+    "disaster-management",
+    "decision-support"
+  ],
+  "author": "NER Sentinel Team",
+  "license": "UNLICENSED"
+}

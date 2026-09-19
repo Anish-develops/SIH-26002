@@ -1,0 +1,42 @@
+[
+  {
+    "id": "INC-DEMO-01",
+    "type": "ROAD_DAMAGE",
+    "severity": "LOW",
+    "latitude": 25.5539,
+    "longitude": 92.0543,
+    "segment_id": "S-06",
+    "photo_url": "/photos/incident-minor-gravel.jpg",
+    "notes": "Localized shoulder erosion patched by road maintenance patrol. Single-lane speed limit active.",
+    "created_at": "2026-09-13T18:30:00Z",
+    "reporter": {
+      "id": "OFF-771",
+      "name": "S. Marak",
+      "role": "FIELD_OFFICER",
+      "phone": "+91-98640-11223"
+    },
+    "verification_status": "RESOLVED",
+    "source": "synthetic",
+    "environment": "demo"
+  },
+  {
+    "id": "INC-DEMO-02",
+    "type": "LANDSLIDE",
+    "severity": "CRITICAL",
+    "latitude": 25.2631,
+    "longitude": 92.4285,
+    "segment_id": "S-08",
+    "photo_url": "/photos/incident-landslide-sonapur.jpg",
+    "notes": "Severe slope failure triggered by intense monsoon rainfall (65 mm/h). Mud and heavy rock debris blocking both lanes near tunnel approach. Heavy machinery dispatch requested.",
+    "created_at": "2026-09-13T21:45:00Z",
+    "reporter": {
+      "id": "OFF-409",
+      "name": "K. Nath",
+      "role": "FIELD_OFFICER",
+      "phone": "+91-94350-99881"
+    },
+    "verification_status": "VERIFIED",
+    "source": "field_report",
+    "environment": "demo"
+  }
+]

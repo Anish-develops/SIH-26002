@@ -1,0 +1,94 @@
+{
+  "environment": "demo",
+  "source": "synthetic",
+  "engine_version": "demo-risk-v1",
+  "confidence_label": "PROTOTYPE_ESTIMATE",
+  "scoring_weights": {
+    "rainfall_max_points": 35,
+    "slope_max_points": 25,
+    "incident_max_points": 30,
+    "surface_max_points": 10
+  },
+  "segment_baselines": {
+    "S-08": {
+      "baseline_score": 22,
+      "baseline_level": "LOW",
+      "baseline_factors": [
+        {
+          "factor": "Moderate baseline mountain precipitation",
+          "points": 10,
+          "category": "WEATHER",
+          "description": "Rainfall at 12 mm/h within safe drainage threshold."
+        },
+        {
+          "factor": "Steep slope exposure (32°)",
+          "points": 12,
+          "category": "TERRAIN",
+          "description": "High slope gradient characteristic of pass section."
+        }
+      ]
+    },
+    "S-08_heavy_rain": {
+      "score": 78,
+      "level": "HIGH",
+      "risk_type": "LANDSLIDE",
+      "factors": [
+        {
+          "factor": "Heavy rainfall",
+          "points": 30,
+          "category": "WEATHER",
+          "description": "Sustained monsoon precipitation at 65 mm/h exceeding critical soil shear threshold."
+        },
+        {
+          "factor": "Steep terrain",
+          "points": 22,
+          "category": "TERRAIN",
+          "description": "32° slope cut with exposed fractured shale bedrock."
+        },
+        {
+          "factor": "Recent incident",
+          "points": 18,
+          "category": "INCIDENT_HISTORY",
+          "description": "Active slope displacement warnings reported on adjacent chainage."
+        },
+        {
+          "factor": "Historical exposure",
+          "points": 8,
+          "category": "SOIL_MOISTURE",
+          "description": "High saturation index from cumulative 48-hour antecedent rainfall."
+        }
+      ]
+    },
+    "S-08_landslide_blocked": {
+      "score": 95,
+      "level": "CRITICAL",
+      "risk_type": "LANDSLIDE",
+      "factors": [
+        {
+          "factor": "Heavy rainfall",
+          "points": 30,
+          "category": "WEATHER",
+          "description": "Continuous cloudburst precipitation continuing across ridge."
+        },
+        {
+          "factor": "Steep terrain",
+          "points": 22,
+          "category": "TERRAIN",
+          "description": "32° steep hillside with massive debris release."
+        },
+        {
+          "factor": "Confirmed Landslide",
+          "points": 35,
+          "category": "INCIDENT_HISTORY",
+          "description": "Physical blockage: rock and mud mass covering both carriageway lanes."
+        },
+        {
+          "factor": "Historical exposure",
+          "points": 8,
+          "category": "SOIL_MOISTURE",
+          "description": "Saturated sub-base preventing rapid equipment clearance."
+        }
+      ]
+    }
+  }
+}
